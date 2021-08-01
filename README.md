@@ -9,9 +9,9 @@ Car Key as item for ESX !
   - [EssentialMode](https://github.com/extendedmode/extendedmode)
 
 ## Installation
-1.Donwload File from reposity.  
+1.Download File from reposity.  
 2. Copy ```esx_carkey```   
-3. Goto ```\essentialmode\server\common.lua```  
+3. Go to ```\essentialmode\server\common.lua```  
 4. add this code after all lines !
 ```
   RegisterServerEvent('esx:CreateItem')
@@ -29,7 +29,7 @@ Car Key as item for ESX !
     end
   end)
 ```  
-5. Enjoy Script !  
+5. Enjoy the Script !  
 
 ## Notes !
 1. for giving any key to player or get any key from player, you need to trigger ```CarLock:keyoperation``` in player client  
@@ -38,7 +38,7 @@ Car Key as item for ESX !
     TriggerServerEvent("CarLock:keyoperation", false, plate, vehicle) -- get key
     TriggerServerEvent("CarLock:keyoperation", true, plate, vehicle) -- give key
   ```
-2. for check the player has key or not you need to trigger esx callback named  ```CarLock:haskey```  
+2. to check the player has key or not you need to trigger esx callback named  ```CarLock:haskey```  
   Example : 
   ```
     ESX.TriggerServerCallback('CarLock:haskey', function(haskey)
