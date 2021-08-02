@@ -10,9 +10,10 @@ Car Key as item for ESX !
 
 ## Installation
 1.Download File from reposity.  
-2. Copy ```esx_carkey```   
-3. Go to ```\essentialmode\server\common.lua```  
-4. add this code after all lines !
+2. Copy ```esx_carkey``` folder to your resources folder  
+3. Copy all files in ```sounds``` folder to interactsound ```sounds``` folder
+4. Go to ```\essentialmode\server\common.lua```  
+5. add this code after all lines !
 ```
   RegisterServerEvent('esx:CreateItem')
   AddEventHandler('esx:CreateItem', function(name, label, limit, rare, can_remove)
