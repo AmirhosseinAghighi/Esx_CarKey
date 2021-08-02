@@ -6,8 +6,6 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 local createdcars = {}
 local keysoncar = {}
 
---TriggerEvent('esx:CreateItem', "CarKey|47JHZ321", "Car Key | 47JHZ321", 1, 0, 1)
-
 
 ESX.RegisterServerCallback('CarLock:haskey', function(source, cb, plate, vehicle)
     local item = "CarKey|"..plate
