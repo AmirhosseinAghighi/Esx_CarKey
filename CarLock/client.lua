@@ -105,10 +105,7 @@ end
 
 
 -- CarLock
-
 local timer = 0
-
-
 
 
 Citizen.CreateThread(function()
@@ -129,7 +126,7 @@ Citizen.CreateThread(function()
 			local cars_dist = {}		
 			notowned = 0
 			if #cars == 0 then
-				ESX.ShowNotification("Mashini baraye ghofl kardan nazdik shoma nist.")
+				ESX.ShowNotification("it seems there isn't any car to lock")
 			else
 				for j=1, #cars, 1 do
 					local coordscar = GetEntityCoords(cars[j])
@@ -167,20 +164,8 @@ Citizen.CreateThread(function()
                                 SetVehicleDoorShut(carstrie[i], 5, false)
                                 SetVehicleDoorsLocked(carstrie[i], 2)
                                 PlayVehicleDoorCloseSound(carstrie[i], 1)
-                                ESX.ShowNotification('Shoma ~y~'..vehicleLabel..'~s~ ra ~r~ghofl~s~ kardid~s~.')
+                                ESX.ShowNotification('you ~r~Closed ~y~'..vehicleLabel..'~s~ doors~s~.')
                                 TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "lock", 0.5)
-                                ESX.TriggerServerCallback('esx_policejob:getIcName', function(PlayerName)
-
-                                    if PlayerName ~= nil then
-                            
-                                        local text = '* ' .. PlayerName .. ' vasile naghlie ro ghofl mikone *'
-
-        
-                                        TriggerServerEvent('3dme:shareDisplay', text, false)
-                            
-                                    end
-                            
-                                end)
                                 if not IsPedInAnyVehicle(PlayerPedId(), true) then
                                     TaskPlayAnim(PlayerPedId(), dict, "fob_click_fp", 8.0, 8.0, -1, 48, 1, false, false, false)
                                 end
@@ -195,20 +180,8 @@ Citizen.CreateThread(function()
                             elseif lock == 2 then
                                 SetVehicleDoorsLocked(carstrie[i], 1)
                                 PlayVehicleDoorOpenSound(carstrie[i], 0)
-                                ESX.ShowNotification('Shoma ~y~'..vehicleLabel..'~s~ ra ~g~baz~s~ kardid~s~.')
+                                ESX.ShowNotification('you ~g~opened ~y~'..vehicleLabel..'~s~ doors~s~.')
                                 TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "unlock", 0.5)
-                                ESX.TriggerServerCallback('esx_policejob:getIcName', function(PlayerName)
-
-                                    if PlayerName ~= nil then
-                            
-                                        local text = '* ' .. PlayerName .. ' vasile naghlie ro baz mikone *'
-
-        
-                                        TriggerServerEvent('3dme:shareDisplay', text, false)
-                            
-                                    end
-                            
-                                end)
                                 if not IsPedInAnyVehicle(PlayerPedId(), true) then
                                     TaskPlayAnim(PlayerPedId(), dict, "fob_click_fp", 8.0, 8.0, -1, 48, 1, false, false, false)
                                 end
@@ -222,13 +195,13 @@ Citizen.CreateThread(function()
                                 hasAlreadyLocked = true
                             end
                         else
-                            ESX.ShowNotification("Mashini baraye ghofl kardan nazdik shoma nist.")
+                            ESX.ShowNotification("it seems there isn't any car to lock")
                         end
                     end, plate)
 				end			
 			end
 		else
-			ESX.ShowNotification("~r~Lotfan Spam nakonid")
+			ESX.ShowNotification("~r~Don't Spam")
 			timer = GetGameTimer()
 		end
 	end
