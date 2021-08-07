@@ -48,6 +48,12 @@ Car Key as item for ESX !
       end
     end, plate, vehicle)
   ```  
+  3. to create key for vehicle use trigger named ```esx:CreateItem```   
+  Example : 
+  ```
+  TriggerServerEvent('esx:CreateItem', "CarKey|"..plate, "Car Key | "..plate, 1, 0, 1);
+  -- Dont change anything except plate
+  ```
   
 
   
